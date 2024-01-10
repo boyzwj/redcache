@@ -20,8 +20,8 @@ this is a simple redis cache wrapper for elixir, it's based on [redix] [poolboy]
 - [x] hdecrby
 - [x] hgetall
 - [x] hkeys
-- [] hvals
-- [] hlen
+- [x] hvals
+- [x] hlen
 
 ## Installation
 
