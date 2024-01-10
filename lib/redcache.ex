@@ -436,16 +436,16 @@ defmodule RedCache do
       end
 
       ## === BF.LOADCHUNK ===
-      def bfloadchunk(key, chunk) do
+      def bfloadchunk(key, iterator, data) do
         key
         |> parse_key
-        |> @adapter.bfloadchunk(chunk)
+        |> @adapter.bfloadchunk(iterator, data)
       end
 
-      def bfloadchunk!(key, chunk) do
+      def bfloadchunk!(key, iterator, data) do
         key
         |> parse_key
-        |> @adapter.bfloadchunk!(chunk)
+        |> @adapter.bfloadchunk!(iterator, data)
       end
 
       ## === BF.SCANDUMP ===
