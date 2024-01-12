@@ -131,12 +131,20 @@ defmodule RedCache.Adapter do
       end
 
       ## === HDEL ===
+      def hdel(table, keys) when is_list(keys) do
+        @pool.command(["HDEL", table | keys])
+      end
+
       def hdel(table, key) do
-        @pool.command(["HDEL", table, key])
+        hdel(table, [key])
+      end
+
+      def hdel!(table, keys) when is_list(keys) do
+        @pool.command!(["HDEL", table | keys])
       end
 
       def hdel!(table, key) do
-        @pool.command!(["HDEL", table, key])
+        hdel!(table, [key])
       end
 
       ## === HEXISTS ===
