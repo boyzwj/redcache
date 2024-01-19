@@ -18,6 +18,16 @@ defmodule RedCache do
         @pool_name.start_link(args)
       end
 
+      def child_spec(opts) do
+        %{
+          id: __MODULE__,
+          start: {__MODULE__, :start_link, [opts]},
+          type: :worker,
+          restart: :permanent,
+          shutdown: 500
+        }
+      end
+
       def parse_key(key), do: "#{__MODULE__}:#{key}"
 
       ## ============================ API =================================
